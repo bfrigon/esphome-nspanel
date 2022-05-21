@@ -13,7 +13,7 @@ substitutions:
   left_switch_description: "Lamps"
   left_switch_entity: light.living_room_lamps
   
-  ## Left switch description and entity to control
+  ## Right switch description and entity to control
   right_switch_description: "RGB lights"
   right_switch_entity: light.living_room_minibar_rgb
   
@@ -525,11 +525,8 @@ script:
           icon_id=26;
           
         } else if(id(weather_symbol).state == "cloudy") {
-          if(id(sun_state).state == "below_horizon") {
-            icon_id=42;
-          } else {
-            icon_id=27;
-          }
+          icon_id=27;
+          
         } if(id(weather_symbol).state == "exceptional") {
           icon_id=28;
           
@@ -546,7 +543,11 @@ script:
           icon_id=32;
           
         } if(id(weather_symbol).state == "partlycloudy") {
-          icon_id=33;
+          if(id(sun_state).state == "below_horizon") {
+            icon_id=42;
+          } else {
+            icon_id=33;
+          }
           
         } if(id(weather_symbol).state == "pouring") {
           icon_id=34;
